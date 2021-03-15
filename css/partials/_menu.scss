@@ -6,6 +6,7 @@ header {
 .navbar {
     max-width: 1440px;
     margin: 0 auto;
+    padding: 0px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,6 +25,14 @@ header {
     li {
         margin-left: 24px;
     }
+
+    @include responsive() {
+        display: none;
+    }
+}
+
+.logo {
+    max-width: 88px;
 }
 
 .nav-link {
@@ -59,6 +68,18 @@ header {
     }
 }
 
+.bx {
+    display: none;
+    
+    @include responsive() {
+        display: block;
+        width: 48px;
+        height: 48px;
+        background-color: $white;
+        border-radius: 8px;
+    }
+}
+
 .nav-social {
     display: flex;
     justify-content: flex-end;
@@ -81,5 +102,9 @@ header {
                 
             }
         }
+    }
+
+    @include responsive() {
+        display: none;
     }
 }
