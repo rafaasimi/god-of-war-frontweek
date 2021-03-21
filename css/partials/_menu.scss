@@ -108,3 +108,12 @@ header {
         display: none;
     }
 }
+
+.highlight {
+    color: $red;
+    font-weight: bold;
+}
+
+.highlight:hover {
+    color: $red-light;
+}
