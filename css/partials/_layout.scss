@@ -1,15 +1,17 @@
 .container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 36px 16px;
-  height: 85vh;
+  padding: 36px 16px 0px;
+  height: 91vh;
   display: flex;
   flex-direction: row;
   align-items: center;
-  // overflow: hidden;
+  overflow: none;
   @include responsive() {
     flex-direction: column;
     height: auto;
+    overflow: hidden;
+    align-items: center;
   }
 }
 
@@ -18,6 +20,23 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  @include responsive() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.container-item-2 {
+  height: 100%;
+  overflow: hidden;
+}
+
+.item-3 {
+  @include responsive() {
+    text-align: center;
+  }
 }
 
 .flex {
@@ -32,12 +51,11 @@
   align-items: center;
 }
 
-
 .kratos {
-  width: 130%;
-  transform: translate3d(-170px, 0, 0);
+  transform: translate3d(-70px, 0px, 0);
+  width: 110%;
 
-  @include responsive(){
+  @include responsive() {
     width: 100%;
     transform: translate3d(0, 0, 0);
   }
@@ -84,7 +102,7 @@
   }
 
   &:hover {
-      transform: skew(-10deg) scale(1.05);
+    transform: skew(-10deg) scale(1.05);
     &::after {
       opacity: 1;
     }
@@ -92,38 +110,94 @@
       opacity: 1;
     }
   }
+
+  @include responsive() {
+    width: 90%;
+  }
 }
 
 .btn-secondary {
-    display: inline-block;
-    padding: 10px 32px;
-    border-radius: 3px;
-    transform: skewX(-10deg);
-    text-transform: uppercase;
-    background: transparent;
-    border: 2px solid $red-dark;
-    
-    position: relative;
+  display: inline-block;
+  padding: 10px 32px;
+  border-radius: 3px;
+  transform: skewX(-10deg);
+  text-transform: uppercase;
+  background: transparent;
+  border: 2px solid $red-dark;
+
+  position: relative;
+  transition: 0.7s ease;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 0;
+    height: 103%;
+    background: linear-gradient(180deg, #bf2830 0%, #8c0109 100%);
+    z-index: -1;
     transition: 0.7s ease;
+  }
 
+  &:hover {
     &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: -1px;
-        left: -1px;
-        width: 0;
-        height: 103%;
-        background: linear-gradient(180deg, #bf2830 0%, #8c0109 100%);
-        z-index: -1;
-        transition: .7s ease;
+      content: "";
+      width: 101%;
     }
+  }
 
-    &:hover {
-            &::after {
-                content: '';
-                width: 101%;
-            }
-    }
+  @include responsive() {
+    width: 90%;
+    margin-left: 0px;
+    margin-top: 8px;
+  }
+}
 
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background: linear-gradient(
+      106.05deg,
+      #050609 14.51%,
+      rgba(5, 6, 9, 0.8) 51.22%,
+      #050609 85.36%
+    );
+  }
+}
+
+.bg-video video {
+  height: 100%;
+}
+
+.bg-loader {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(225deg, $red 0%, $red-dark 100%);
+  overflow: hidden;
 }
